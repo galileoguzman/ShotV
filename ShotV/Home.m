@@ -69,6 +69,24 @@ NSMutableArray *nombreArray;
     // Dispose of any resources that can be recreated.
 }
 
+// CLEAN STRING WITH HTML TAGS
+-(NSString *) stringByStrippingHTML:(NSString*) stringWithHtmlTags {
+    NSRange r;
+    NSString *s = stringWithHtmlTags;
+    while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        s = [s stringByReplacingCharactersInRange:r withString:@""];
+    return s;
+}
+
+// IMAGES CROP
+-(UIImage *) CropImageFromTop:(UIImage *)image
+{
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], CGRectMake(0, 35, image.size.width, image.size.height - 20));
+    UIImage *cropimage = [[UIImage alloc] initWithCGImage:imageRef] ;
+    CGImageRelease(imageRef);
+    return cropimage;
+}
+
 
 //WEBSERVICES METHODS
 
@@ -173,13 +191,15 @@ NSMutableArray *nombreArray;
     
     NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString: urlImage]];
     UIImage *imgShow = [UIImage imageWithData:data];
-    cell.imgShow.image = imgShow;
+    cell.imgShow.image = [self CropImageFromTop:imgShow];
+    //cell.imgShow.layer.contentsRect = CGRectMake(0.1, 0.1, 0.25, 0.25);
+    
     
     /**********************************************************
      GET INFORMATION FROM ARRAY AND SET THE TEXT INFO
      ***********************************************************/
     cell.lblShowName.text = [[shows objectAtIndex:indexPath.row] valueForKey:@"name"];
-    cell.lblSummary.text = [[shows objectAtIndex:indexPath.row] valueForKey:@"summary"];
+    cell.lblSummary.text = [self stringByStrippingHTML:[[shows objectAtIndex:indexPath.row] valueForKey:@"summary"]];
     return cell;
 }
 

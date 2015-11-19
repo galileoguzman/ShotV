@@ -11,5 +11,7 @@
 @interface ShowCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *lblShowName;
 @property (strong, nonatomic) IBOutlet UIImageView *imgShow;
+@property (strong, nonatomic) IBOutlet UILabel *lblOpacity;
+@property (strong, nonatomic) IBOutlet UILabel *lblSummary;
 
 @end

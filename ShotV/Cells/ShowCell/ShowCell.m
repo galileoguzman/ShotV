@@ -12,6 +12,12 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.lblOpacity.layer.shadowOpacity = 0.50f;
+    self.lblOpacity.layer.shadowRadius = 10.0f;
+    self.lblOpacity.layer.shadowColor = [[UIColor blackColor] CGColor];
+
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

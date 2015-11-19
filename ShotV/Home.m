@@ -7,6 +7,7 @@
 //
 
 #import "Home.h"
+#import "ShowCell.h"
 
 
 NSArray *shows;
@@ -29,7 +30,7 @@ NSArray *shows;
         /***************************
          GET ACCESS TO OBJECTS IN ARRAY
          ***************************/
-        
+        /*
         NSLog(@"All fine");
         NSLog(@"Size of dictionary %lu", shows.count);
         
@@ -42,7 +43,7 @@ NSArray *shows;
             // do something with object
             
             NSLog(@"NAME %@", [object valueForKey:@"name"]);
-        }
+        }*/
     }else{
         NSLog(@"Ocurrio un error al recuperar los datos");
     }
@@ -112,6 +113,44 @@ NSArray *shows;
         NSLog(@"Exception");
         return nil;
     }
+}
+
+
+#pragma MARK TABLE METHODS
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return shows.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 64;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"showCell";
+    ShowCell *cell = (ShowCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[ShowCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    //NSLog(@"%@", [[shows objectAtIndex:indexPath.row] valueForKey:@"name"]);
+    
+    //cell.lblShowName.text = [[shows objectAtIndex:indexPath.row] valueForKey:@"name"];
+    //cell.imgPersonaje.image = [UIImage imageNamed:imagenesArray[indexPath.row]];
+    //Agregar un borde fino al UIImage
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 @end

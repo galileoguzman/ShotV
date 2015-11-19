@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F25E7F1A1BFE2CA90005E06E /* ShowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F25E7F181BFE2CA90005E06E /* ShowCell.m */; };
+		F25E7F1B1BFE2CA90005E06E /* ShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F25E7F191BFE2CA90005E06E /* ShowCell.xib */; };
 		F2B54BD11BFD8F24008476DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B54BD01BFD8F24008476DB /* main.m */; };
 		F2B54BD41BFD8F24008476DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B54BD31BFD8F24008476DB /* AppDelegate.m */; };
 		F2B54BD71BFD8F24008476DB /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B54BD61BFD8F24008476DB /* Home.m */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F25E7F171BFE2CA90005E06E /* ShowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowCell.h; path = Cells/ShowCell/ShowCell.h; sourceTree = "<group>"; };
+		F25E7F181BFE2CA90005E06E /* ShowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowCell.m; path = Cells/ShowCell/ShowCell.m; sourceTree = "<group>"; };
+		F25E7F191BFE2CA90005E06E /* ShowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShowCell.xib; path = Cells/ShowCell/ShowCell.xib; sourceTree = "<group>"; };
 		F2B54BCC1BFD8F24008476DB /* ShotV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShotV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B54BD01BFD8F24008476DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F2B54BD21BFD8F24008476DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +86,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F25E7F151BFE2C720005E06E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F25E7F161BFE2C7A0005E06E /* ShowCell */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		F25E7F161BFE2C7A0005E06E /* ShowCell */ = {
+			isa = PBXGroup;
+			children = (
+				F25E7F171BFE2CA90005E06E /* ShowCell.h */,
+				F25E7F181BFE2CA90005E06E /* ShowCell.m */,
+				F25E7F191BFE2CA90005E06E /* ShowCell.xib */,
+			);
+			name = ShowCell;
+			sourceTree = "<group>";
+		};
 		F2B54BC31BFD8F24008476DB = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +127,7 @@
 		F2B54BCE1BFD8F24008476DB /* ShotV */ = {
 			isa = PBXGroup;
 			children = (
+				F25E7F151BFE2C720005E06E /* Cells */,
 				F2B54C041BFD8F7A008476DB /* Services */,
 				F2B54C031BFD8F62008476DB /* Controllers */,
 				F2B54C021BFD8F53008476DB /* Main */,
@@ -274,6 +298,7 @@
 			files = (
 				F2B54BDF1BFD8F24008476DB /* LaunchScreen.storyboard in Resources */,
 				F2B54BDC1BFD8F24008476DB /* Assets.xcassets in Resources */,
+				F25E7F1B1BFE2CA90005E06E /* ShowCell.xib in Resources */,
 				F2B54BDA1BFD8F24008476DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +327,7 @@
 				F2B54BD71BFD8F24008476DB /* Home.m in Sources */,
 				F2B54BD41BFD8F24008476DB /* AppDelegate.m in Sources */,
 				F2B54C071BFD8FA5008476DB /* API.m in Sources */,
+				F25E7F1A1BFE2CA90005E06E /* ShowCell.m in Sources */,
 				F2B54BD11BFD8F24008476DB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +552,7 @@
 				F2B54BFB1BFD8F24008476DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F2B54BFC1BFD8F24008476DB /* Build configuration list for PBXNativeTarget "ShotVTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +561,7 @@
 				F2B54BFE1BFD8F24008476DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F2B54BFF1BFD8F24008476DB /* Build configuration list for PBXNativeTarget "ShotVUITests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +570,7 @@
 				F2B54C011BFD8F24008476DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

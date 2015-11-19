@@ -203,9 +203,21 @@ NSMutableArray *nombreArray;
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSLog(@"Row selected %@", [shows objectAtIndex:indexPath.row]);
+    
+}
+
+- (void)scrollViewDidScroll: (UIScrollView *)scroll {
+    // UITableView only moves in one direction, y axis
+    CGFloat currentOffset = scroll.contentOffset.y;
+    CGFloat maximumOffset = scroll.contentSize.height - scroll.frame.size.height;
+    
+    // Change 10.0 to adjust the distance from bottom
+    if (maximumOffset - currentOffset <= 10.0) {
+        //[self methodThatAddsDataAndReloadsTableView];
+    }
 }
 
 @end

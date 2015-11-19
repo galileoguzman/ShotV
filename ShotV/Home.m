@@ -147,7 +147,7 @@ NSMutableArray *nombreArray;
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 64;
+    return 142;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -171,8 +171,9 @@ NSMutableArray *nombreArray;
      ***********************************************************/
     NSString *urlImage = [[[shows objectAtIndex:indexPath.row] valueForKey:@"image"] valueForKey:@"medium"];
     
-    //NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: @"http://myurl/mypic.jpg"]];
-    //cell.imgShow = [UIImage imageWithData: imageData];
+    NSData *data = [NSData dataWithContentsOfURL: [NSURL URLWithString: urlImage]];
+    UIImage *imgShow = [UIImage imageWithData:data];
+    cell.imgShow.image = imgShow;
     
     //NSLog(@"Cell %@", [[shows objectAtIndex:indexPath.row] valueForKey:@"name"]);
     //NSLog(@"Nombre %@", nombreArray[indexPath.row]);

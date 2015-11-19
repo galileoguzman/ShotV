@@ -175,9 +175,11 @@ NSMutableArray *nombreArray;
     UIImage *imgShow = [UIImage imageWithData:data];
     cell.imgShow.image = imgShow;
     
-    //NSLog(@"Cell %@", [[shows objectAtIndex:indexPath.row] valueForKey:@"name"]);
-    //NSLog(@"Nombre %@", nombreArray[indexPath.row]);
+    /**********************************************************
+     GET INFORMATION FROM ARRAY AND SET THE TEXT INFO
+     ***********************************************************/
     cell.lblShowName.text = [[shows objectAtIndex:indexPath.row] valueForKey:@"name"];
+    cell.lblSummary.text = [[shows objectAtIndex:indexPath.row] valueForKey:@"summary"];
     return cell;
 }
 

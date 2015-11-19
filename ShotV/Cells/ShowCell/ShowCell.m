@@ -13,9 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    self.lblOpacity.layer.shadowOpacity = 0.50f;
-    self.lblOpacity.layer.shadowRadius = 10.0f;
-    self.lblOpacity.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.lblOpacity.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
 
     
 }

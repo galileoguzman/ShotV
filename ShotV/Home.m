@@ -11,6 +11,7 @@
 
 
 NSArray *shows;
+NSMutableArray *nombreArray;
 
 @interface Home ()
 
@@ -22,10 +23,10 @@ NSArray *shows;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    if([[self getTvShows] count] > 0){
-        shows = [[NSArray alloc] init];
-        shows =[NSArray arrayWithArray:[self getTvShows]];
+    shows = [[NSArray alloc] init];
+    shows =[NSArray arrayWithArray:[self getTvShows]];
+    if(shows != nil){
+        
         
         /***************************
          GET ACCESS TO OBJECTS IN ARRAY
@@ -44,9 +45,21 @@ NSArray *shows;
             
             NSLog(@"NAME %@", [object valueForKey:@"name"]);
         }*/
+        NSLog(@"Datos recuperados");
     }else{
         NSLog(@"Ocurrio un error al recuperar los datos");
     }
+    
+    
+    nombreArray = [NSMutableArray arrayWithObjects:
+                   @"Galileo Guzmán",
+                   @"Augusto Bustamante",
+                   @"Osvaldo Alejandro",
+                   @"José manuel chavez",
+                   @"Jesus Hernandez",
+                   @"Felipe velasco",
+                   @"Ricardo Vera",
+                   nil];
     
     
 }
@@ -124,7 +137,12 @@ NSArray *shows;
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return shows.count;
+    if(shows != nil){
+        return shows.count;
+    }else{
+        return 1;
+    }
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,17 +152,31 @@ NSArray *shows;
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"showCell";
+    /**********************************************************
+     INIT UITABLEVIEWCELL FROM NIB FILE
+     ***********************************************************/
+    static NSString *CellIdentifier = @"cellShow";
     ShowCell *cell = (ShowCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
-        cell = [[ShowCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:@"ShowCell" bundle:nil] forCellReuseIdentifier:@"cellShow"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"cellShow"];
     }
     
-    //NSLog(@"%@", [[shows objectAtIndex:indexPath.row] valueForKey:@"name"]);
+    cell.selectionStyle         = UITableViewCellSelectionStyleNone;
     
-    //cell.lblShowName.text = [[shows objectAtIndex:indexPath.row] valueForKey:@"name"];
-    //cell.imgPersonaje.image = [UIImage imageNamed:imagenesArray[indexPath.row]];
-    //Agregar un borde fino al UIImage
+    
+    /**********************************************************
+     GET IMAGE FROM PUBLIC API ROUTE
+     ***********************************************************/
+    NSString *urlImage = [[[shows objectAtIndex:indexPath.row] valueForKey:@"image"] valueForKey:@"medium"];
+    
+    //NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: @"http://myurl/mypic.jpg"]];
+    //cell.imgShow = [UIImage imageWithData: imageData];
+    
+    //NSLog(@"Cell %@", [[shows objectAtIndex:indexPath.row] valueForKey:@"name"]);
+    //NSLog(@"Nombre %@", nombreArray[indexPath.row]);
+    cell.lblShowName.text = [[shows objectAtIndex:indexPath.row] valueForKey:@"name"];
     return cell;
 }
 

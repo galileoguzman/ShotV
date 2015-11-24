@@ -23,8 +23,11 @@ NSMutableArray *nombreArray;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
     shows = [[NSArray alloc] init];
+    
     shows =[NSArray arrayWithArray:[self getTvShows]];
+    
     if(shows != nil){
         
         
